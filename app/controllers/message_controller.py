@@ -10,3 +10,8 @@ service = MessageService()
 def send_message(request: MessageRequest) -> MessageResponse:
     response = service.process_message(request.message)
     return MessageResponse(response=response)
+
+@router.get("/")
+def list_messages() -> dict:
+    return service.list_messages()
+
